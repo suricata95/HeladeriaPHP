@@ -1,12 +1,10 @@
-<?php 
-class Usuario {
-    public $idUsuario  ;
+<?php
+class Cliente {
+    public $idCliente;
     public $nombre;
     public $apellidos;
-    public $nombreUsuario;
-    public $contraseÃ±a;
-    public $idTipo;
     public $mysql;
+    
     function __construct() {
         try {
             $this->mysql = new MySqlDAO ();
@@ -14,10 +12,11 @@ class Usuario {
             die ( $e->getMessage () );
         }
     }
-    public function Consultar($nombreUsuario,$contraseÃ±a) {
-        $resultado=null;
+    
+    public function Consultar($instCliente) {
+        $resultado = null;
         try {
-            $vSql = "CALL ConsultaUsuario ('{$nombreUsuario}','{$contraseÃ±a}' );";
+            $vSql = "CALL PA_SeleccionarCliente (" . $instCliente->idCliente . " );";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL ( $vSql );
             
@@ -27,19 +26,26 @@ class Usuario {
         }
     }
     
-
-    public function insertar($instUsuario) {
+    public function Listar() {
+        $resultado = null;
+        try {
+            $vSql = "CALL PA_SeleccionarCliente(0);";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->EjecutarSQL ( $vSql );
+            return $resultado;
+        } catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
+    
+    public function Agregar($instCliente) {
         try {
             
-            $vSql = "CALL PA_I_Usuario(
-            '{$instUsuario->idUsuario}',
-            '{$instUsuario->nombre}',
-            {$instUsuario->apellidos},
-            {$instUsuario->nombreUsuario},
-            {$instUsuario->contraseña},
-            '{$$instUsuario->idTipo}',
+            $vSql = "CALL PA_I_Cliente(
+            '{$instCliente->nombre}',
+            '{$instCliente->apellidos}',
+            {$instCliente->idCliente}
 					);";
-            
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL_DML ( $vSql );
             var_dump($vSql );
@@ -48,15 +54,12 @@ class Usuario {
             die ( $e->getMessage () );
         }
     }
-    public function Modificar($instUsuario) {
+    public function Modificar($instCliente) {
         try {
-            $vSql = "CALL PA_M_Usuario(
-	         '{$instUsuario->idUsuario}',
-            {$instUsuario->nombre},
-            {$instUsuario->apellidos},
-            {$instUsuario->nombreUsuario},
-            {$instUsuario->contraseña},
-            '{$instUsuario->idTipo}',
+            $vSql = "CALL PA_M_Cliente(
+	        {$instCliente->idCliente},
+            '{$instCliente->nombre}',
+            '{$instCliente->apellidos}',
 					);";
             
             $this->mysql->AbrirConexion ();
@@ -68,9 +71,7 @@ class Usuario {
             die ( $e->getMessage () );
         }
     }
-    
-    
-    public function Eliminar($instUsuario) {
+    public function Eliminar($instCliente) {
         try {
         } catch ( Exception $e ) {
             die ( $e->getMessage () );

@@ -14,7 +14,7 @@
 <div class = "container">
 	<div class="wrapper">
 		<form action="?c=Principal&a=comprobar" method="post" name="Login_Form" class="form-signin">       
-		    <h3 class="form-signin-heading">Hola de nuevo!</h3>
+		    <h3 class="form-signin-heading"> Heladeria <br><br> Bienvenid@</h3>
 						  
 			  <input type="text" class="form-control" name="NombreUsuario" placeholder="Nombre de usuario" required="" autofocus="" />
 			  <input type="password" class="form-control" name="Contraseña" placeholder="Contraseña" required=""/>     		  

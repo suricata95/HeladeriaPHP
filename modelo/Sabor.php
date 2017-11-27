@@ -1,12 +1,11 @@
-<?php 
-class Usuario {
-    public $idUsuario  ;
-    public $nombre;
-    public $apellidos;
-    public $nombreUsuario;
-    public $contraseÃ±a;
-    public $idTipo;
+<?php
+class Sabor {
+    public $idSabor;
+    public $descripcion;
+    public $estado;
+    public $cantidad;
     public $mysql;
+    
     function __construct() {
         try {
             $this->mysql = new MySqlDAO ();
@@ -14,10 +13,26 @@ class Usuario {
             die ( $e->getMessage () );
         }
     }
-    public function Consultar($nombreUsuario,$contraseÃ±a) {
+    
+   
+    
+    public function ConsultarTodo(){
         $resultado=null;
+        try{
+            $vSql="Select * from Sabor;";
+            $this->mysql->AbrirConexion();
+            $resultado=$this->mysql->ejecutarSQL($vSql);
+            return $resultado;
+        }catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
+    
+    
+    public function Consultar($instSabor) {
+        $resultado = null;
         try {
-            $vSql = "CALL ConsultaUsuario ('{$nombreUsuario}','{$contraseÃ±a}' );";
+            $vSql = "CALL PA_SeleccionarSabor(" . $instSabor->idSabor . " );";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL ( $vSql );
             
@@ -27,47 +42,44 @@ class Usuario {
         }
     }
     
+    
+    public function Agregar($instSabor) {
+        try {
+            
+            $vSql = "CALL PA_I_Sabor(
+            {$instSabor->idSabor},
+            '{$instSabor->descripcion}',
+            {$instSabor->estado},
+            {$instSabor->cantidad}
+					);";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->ejecutarSQL_DML ( $vSql );
+            var_dump($vSql );
+            return $resultado;
+        } catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
+    
+    
+    public function Modificar($instSabor) {
+        try {
+            $vSql = "CALL PA_M_Sabor(
+            
+            {$instSabor->idSabor},
+            '{$instSabor->descripcion}',
+            {$instSabor->estado},
+            {$instSabor->cantidad}
+					);";
 
-    public function insertar($instUsuario) {
-        try {
-            
-            $vSql = "CALL PA_I_Usuario(
-            '{$instUsuario->idUsuario}',
-            '{$instUsuario->nombre}',
-            {$instUsuario->apellidos},
-            {$instUsuario->nombreUsuario},
-            {$instUsuario->contraseña},
-            '{$$instUsuario->idTipo}',
-					);";
-            
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL_DML ( $vSql );
-            var_dump($vSql );
             return $resultado;
         } catch ( Exception $e ) {
             die ( $e->getMessage () );
         }
     }
-    public function Modificar($instUsuario) {
-        try {
-            $vSql = "CALL PA_M_Usuario(
-	         '{$instUsuario->idUsuario}',
-            {$instUsuario->nombre},
-            {$instUsuario->apellidos},
-            {$instUsuario->nombreUsuario},
-            {$instUsuario->contraseña},
-            '{$instUsuario->idTipo}',
-					);";
-            
-            $this->mysql->AbrirConexion ();
-            $resultado = $this->mysql->ejecutarSQL_DML ( $vSql );
-            
-            var_dump($vSql );
-            return $resultado;
-        } catch ( Exception $e ) {
-            die ( $e->getMessage () );
-        }
-    }
+    
     
     
     public function Eliminar($instUsuario) {
@@ -76,6 +88,7 @@ class Usuario {
             die ( $e->getMessage () );
         }
     }
+    
     
 }
 ?>
