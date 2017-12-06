@@ -1,0 +1,1 @@
+<img src="vista/img/ballons.jpg" alt="Imagen Principal" width="100%" />
