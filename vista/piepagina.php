@@ -1,13 +1,8 @@
-</div>
-</div>
-
-        <footer class="page-footer amber accent-3">
+        </main>
+        <footer class="fixed-bottom" >
           
-          <div class="footer-copyright">
-            <div class="container">
             © Heladeria Kevin Sánchez Bryan Vásquez
-            </div>
-          </div>
+            
         </footer>
             
 <?php     $msj = "";

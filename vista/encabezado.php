@@ -23,6 +23,7 @@ else{
 <title>Heladería</title>
 <meta charset="utf-8" />
 <link href="vista/css/bootstrap.min.css" rel="stylesheet">
+<link href="vista/css/formulario.css" rel="stylesheet">
 <script type="text/javascript" src="vista/js/jquery-3.2.1.slim.min.js"></script>
 <script type="text/javascript" src="vista/js/popper.min.js"></script>
 <script type="text/javascript" src="vista/js/bootstrap.min.js"></script>
@@ -32,7 +33,7 @@ else{
 <body>
 	<header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Heladería</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -65,5 +66,4 @@ else{
     </nav>	
 	</header>
 	<main role="main">
-	<div class="section" id="index-banner">
-		<div class="container">
+	
