@@ -1,5 +1,5 @@
-<br>
-<br>
+
+<h2>Jejeje</h2>
 <div class="form-group">
 	<label id="" class="control-label col-md-2">Teléfono</label>
 	<div class="col-md-10">
