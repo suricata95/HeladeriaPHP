@@ -29,7 +29,7 @@
 	<label id="" class="control-label col-md-2">Tipo</label>
 	<div class="col-md-10">	
 	<select class="form-control entrada" id="sltTipo" name="sltTipo">
-	<?php echo $tipoUsuarios?>
+	<?php echo $tipoProducto?>
 	</select>		
 	</div>
 
