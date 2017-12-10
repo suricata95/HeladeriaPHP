@@ -1,4 +1,4 @@
-<form id="frm-usuario" action="?c=Sabor&a=Guardar" method="post">
+<form id="frm-sabor" action="?c=Sabor&a=Guardar" method="post">
 <h2>Edición de sabores</h2>
 <input type="hidden" name="idSabor"
 		value="<?php echo $rSabor->idSabor;?>" /> <input
