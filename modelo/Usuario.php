@@ -4,7 +4,7 @@ class Usuario {
     public $nombre;
     public $apellidos;
     public $nombreUsuario;
-    public $contraseÃ±a;
+    public $contraseña;
     public $idTipo;
     public $mysql;
     function __construct() {
@@ -15,11 +15,11 @@ class Usuario {
         }
     }
     
-    public function Consultar($nombreUsuario,$contraseÃ±a) {
+    public function Consultar($nombreUsuario,$contraseña) {
         
         $resultado=null;
         try {
-            $vSql = "CALL ConsultaUsuario ('{$nombreUsuario}','{$contraseÃ±a}' );";
+            $vSql = "CALL ConsultaUsuario ('{$nombreUsuario}','{$contraseña}' );";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL ( $vSql );
             
@@ -54,8 +54,6 @@ class Usuario {
         }
     }
     
-    
-    
     public function Insertar($instUsuario) {
         try {
             
@@ -64,7 +62,7 @@ class Usuario {
             '{$instUsuario->nombre}',
             '{$instUsuario->apellidos}',
             '{$instUsuario->nombreUsuario}',
-            '{$instUsuario->contraseï¿½a}',
+            '{$instUsuario->contraseña}',
             {$$instUsuario->idTipo}
 					);";
             
@@ -83,7 +81,7 @@ class Usuario {
             '{$instUsuario->nombre}',
             '{$instUsuario->apellidos}',
             '{$instUsuario->nombreUsuario}',
-            '{$instUsuario->contraseï¿½a}',
+            '{$instUsuario->contraseña}',
             {$instUsuario->idTipo}
 					);";
             
