@@ -24,13 +24,13 @@ class TipoProductoControlador{
     
     public function Datos()
     {
-        $rTipoProducto = new Sabor();
+        $rTipoProducto = new TipoProducto();
         if (isset($_GET['id']) && ! empty($_GET["id"])) {
             $rTipoProducto->idtipoProducto = $_GET['id'];
             $rTipoProducto = $this->modelo->ConsultarTipoProducto($rTipoProducto);
             
         }
-        //$tipoUsuarios = TipoUsuario::selectTipoUsuario($rUsuario->idTipo);
+        $tipoProducto = TipoProducto::selectTipoProducto($rTipoProducto->idtipoProducto);
         require_once 'vista/encabezado.php';
         require_once 'vista/heladeria/editar/tipoProductoEditar.php';
         require_once 'vista/piepagina.php';
