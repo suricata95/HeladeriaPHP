@@ -14,7 +14,9 @@ class Usuario {
             die ( $e->getMessage () );
         }
     }
+    
     public function Consultar($nombreUsuario,$contraseÃ±a) {
+        
         $resultado=null;
         try {
             $vSql = "CALL ConsultaUsuario ('{$nombreUsuario}','{$contraseÃ±a}' );";
@@ -27,17 +29,31 @@ class Usuario {
         }
     }
     
-
-    public function insertar($instUsuario) {
+    
+    public function Listar() {
+        $resultado = null;
+        try {
+            $vSql = "PA_Seleccionar_Usuario(0);";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->EjecutarSQL ( $vSql );
+            return $resultado;
+        } catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
+    
+    
+    
+    public function Insertar($instUsuario) {
         try {
             
             $vSql = "CALL PA_I_Usuario(
-            '{$instUsuario->idUsuario}',
+            {$instUsuario->idUsuario},
             '{$instUsuario->nombre}',
-            {$instUsuario->apellidos},
-            {$instUsuario->nombreUsuario},
-            {$instUsuario->contraseña},
-            '{$$instUsuario->idTipo}',
+            '{$instUsuario->apellidos}',
+            '{$instUsuario->nombreUsuario}',
+            '{$instUsuario->contraseña}',
+            {$$instUsuario->idTipo}
 					);";
             
             $this->mysql->AbrirConexion ();
@@ -51,12 +67,12 @@ class Usuario {
     public function Modificar($instUsuario) {
         try {
             $vSql = "CALL PA_M_Usuario(
-	         '{$instUsuario->idUsuario}',
-            {$instUsuario->nombre},
-            {$instUsuario->apellidos},
-            {$instUsuario->nombreUsuario},
-            {$instUsuario->contraseña},
-            '{$instUsuario->idTipo}',
+	        {$instUsuario->idUsuario},
+            '{$instUsuario->nombre}',
+            '{$instUsuario->apellidos}',
+            '{$instUsuario->nombreUsuario}',
+            '{$instUsuario->contraseña}',
+            {$instUsuario->idTipo}
 					);";
             
             $this->mysql->AbrirConexion ();
