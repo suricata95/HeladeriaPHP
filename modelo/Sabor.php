@@ -15,11 +15,10 @@ class Sabor {
     }
     
    
-  
     public function Listar() {
         $resultado = null;
         try {
-            $vSql = "CALL PA_SeleccionarSabor(0);";
+            $vSql = "CALL PA_SeleccionarSabor(0,2);";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->EjecutarSQL ( $vSql );
             return $resultado;
