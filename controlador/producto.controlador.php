@@ -30,6 +30,7 @@ class ProductoControlador{
             $rProducto = $this->modelo->ConsultarProducto($rProducto);
             
         }
+      
         //$tipoUsuarios = TipoUsuario::selectTipoUsuario($rUsuario->idTipo);
         require_once 'vista/encabezado.php';
         require_once 'vista/heladeria/editar/productoEditar.php';
@@ -44,8 +45,9 @@ class ProductoControlador{
         $accion = $_POST ["accion"];
         $mensaje = "";
         $iProducto->idProducto=$_POST ["idProducto"];
-        $iProducto->descripcion=$_POST ["txtDescripcion"];
-        $iProducto->idTipo=$_POST ["txtTipo"];
+        $iProducto->descripcion=$_POST ["txtProducto"];
+       // $iProducto->idTipo=$_POST ["txtTipo"];
+        $iProducto->idTipo=1;
         $iProducto->precio=$_POST ["numPrecio"];
         $iProducto->estado=$_POST ["sltEstado"];
        

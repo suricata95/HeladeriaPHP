@@ -29,10 +29,10 @@ class Producto {
     }
     
     
-    public function Consultar($instProducto) {
+    public function ConsultarProducto($instProducto) {
         $resultado = null;
         try {
-            $vSql = "CALL PA_SeleccionarProducto(" . $instProducto->idProducto . " );";
+            $vSql = "CALL PA_SeleccionarProducto(" . $instProducto->idProducto . ",2 );";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL ( $vSql );
             
@@ -43,7 +43,7 @@ class Producto {
     }
     
     
-    public function Agregar($instProducto) {
+    public function Insertar($instProducto) {
         try {
             
             $vSql = "CALL PA_I_Producto(

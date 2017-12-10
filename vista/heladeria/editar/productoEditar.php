@@ -1,6 +1,6 @@
 <form id="frm-producto" action="?c=Producto&a=Guardar" method="post">
 <h2>Edición de productos</h2>
-<input type="hidden" name="idSabor"
+<input type="hidden" name="idProducto"
 		value="<?php echo $rProducto->idProducto;?>" /> <input
 		type="hidden" name="accion"
 		value="<?php echo $rProducto->idProducto!="" ? "U": "I";?>"> 
