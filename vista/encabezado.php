@@ -42,8 +42,7 @@ else{
         <ul class="navbar-nav mr-auto">
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Procesos</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="?c=Usuario">Usuario</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">              
               <a class="dropdown-item" href="#">Editar</a>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
@@ -57,8 +56,8 @@ else{
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listado</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Usuario</a>
-              <a class="dropdown-item" href="#">Editar</a>
+              <a class="dropdown-item" href="?c=Usuario">Usuario</a>
+              <a class="dropdown-item" href="?c=Sabor">Sabor</a>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>

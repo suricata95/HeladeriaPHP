@@ -44,9 +44,9 @@ class SaborControlador{
         $accion = $_POST ["accion"];
         $mensaje = "";
         $iSabor->idSabor=$_POST ["idSabor"];
-        $iSabor->descripcion=$_POST ["descripcion"];
-        $iSabor->estado=$_POST ["estado"];
-        $iSabor->cantidad=$_POST ["cantidad"];
+        $iSabor->descripcion=$_POST ["txtSabor"];
+        $iSabor->estado=$_POST ["sltEstado"];
+        $iSabor->cantidad=$_POST ["numCantidad"];
   
         // Acciones
         $filasAfectadas = 0;

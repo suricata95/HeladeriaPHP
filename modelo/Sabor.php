@@ -29,10 +29,10 @@ class Sabor {
     }
     
     
-    public function Consultar($instSabor) {
+    public function ConsultarSabor($instSabor) {
         $resultado = null;
         try {
-            $vSql = "CALL PA_SeleccionarSabor(" . $instSabor->idSabor . " );";
+            $vSql = "CALL PA_SeleccionarSabor(" . $instSabor->idSabor . ",2 );";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL ( $vSql );
             
