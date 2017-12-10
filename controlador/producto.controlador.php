@@ -46,7 +46,7 @@ class ProductoControlador{
         $iProducto->idProducto=$_POST ["idProducto"];
         $iProducto->descripcion=$_POST ["txtDescripcion"];
         $iProducto->idTipo=$_POST ["txtTipo"];
-        $iProducto->precio=$_POST ["txtPrecio"];
+        $iProducto->precio=$_POST ["numPrecio"];
         $iProducto->estado=$_POST ["sltEstado"];
        
         
