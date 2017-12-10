@@ -45,11 +45,11 @@ class UsuarioControlador{
         $mensaje = "";
         $iUsuario->idUsuario=$_POST ["idUsuario"];
         
-        $iUsuario->nombre=$_POST ["nombre"];
-        $iUsuario->apellidos=$_POST ["apellidos"];
-        $iUsuario->nombreUsuario=$_POST ["nombreUsuario"];
-        $iUsuario->contraseña=$_POST ["contraseña"];
-        $iUsuario->idTipo=$_POST ["idTipo"];
+        $iUsuario->nombre=$_POST ["txtNombre"];
+        $iUsuario->apellidos=$_POST ["txtApellidos"];
+        $iUsuario->nombreUsuario=$_POST ["txtUsuario"];
+        $iUsuario->contraseña=$_POST ["txtContrase�a"];
+        $iUsuario->idTipo=$_POST ["sltTipoUsuario"];
         // Acciones
         $filasAfectadas = 0;
         if ($_POST['accion'] == "U") {
