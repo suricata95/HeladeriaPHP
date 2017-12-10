@@ -16,14 +16,14 @@ class Sabor {
     
    
     
-    public function ConsultarTodo(){
-        $resultado=null;
-        try{
-            $vSql="Select * from Sabor;";
-            $this->mysql->AbrirConexion();
-            $resultado=$this->mysql->ejecutarSQL($vSql);
+    public function Listar() {
+        $resultado = null;
+        try {
+            $vSql = "CALL PA_SeleccionarSabor(0);";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->EjecutarSQL ( $vSql );
             return $resultado;
-        }catch ( Exception $e ) {
+        } catch ( Exception $e ) {
             die ( $e->getMessage () );
         }
     }
@@ -43,7 +43,7 @@ class Sabor {
     }
     
     
-    public function Agregar($instSabor) {
+    public function Insertar($instSabor) {
         try {
             
             $vSql = "CALL PA_I_Sabor(
