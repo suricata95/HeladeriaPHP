@@ -1,3 +1,5 @@
+<h2>Listado de sabores</h2>
+<br>
 <a href='?c=Sabor&a=Datos' class='btn btn-success'>Agregar</a>
          <br>
          <br>               

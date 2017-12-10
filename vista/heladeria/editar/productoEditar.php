@@ -5,7 +5,7 @@
 		type="hidden" name="accion"
 		value="<?php echo $rProducto->idProducto!="" ? "U": "I";?>"> 
 <div class="form-group">
-	<label id="" class="control-label col-md-2">Sabor</label>
+	<label id="" class="control-label col-md-2">Producto</label>
 	<div class="col-md-10">	
 		<input type="text" class="form-control entrada" id="txtProducto" name="txtProducto" value="<?php echo $rProducto->descripcion;?>">
 	</div>
@@ -21,6 +21,16 @@
 					<option value="1"
 					<?php echo $rProducto->estado==1?"selected='selected'":"" ?>>Activado</option>
 	</select>
+	</div>
+
+</div>
+
+<div class="form-group">
+	<label id="" class="control-label col-md-2">Tipo</label>
+	<div class="col-md-10">	
+	<select class="form-control entrada" id="sltTipo" name="sltTipo">
+	<?php echo $tipoUsuarios?>
+	</select>		
 	</div>
 
 </div>

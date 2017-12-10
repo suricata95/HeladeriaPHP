@@ -1,3 +1,5 @@
+<h2>Listado de usuarios	</h2>
+<br>
 <a href='?c=Usuario&a=Datos' class='btn btn-success'>Agregar</a>
          <br>
          <br>               

@@ -70,10 +70,8 @@ else{
     </nav>	
 	</header>
 	<main role="main">
-	<div>
 	<br>
-	<br>
-
+	<div>		
 	<div class="container">
 	
 	

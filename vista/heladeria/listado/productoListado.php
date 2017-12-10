@@ -1,3 +1,5 @@
+<h2>Listado de productos</h2>
+<br>
 <a href='?c=Producto&a=Datos' class='btn btn-success'>Agregar</a>
          <br>
          <br>               
@@ -6,6 +8,7 @@
     <tr>
       <th scope="col">Producto</th>
       <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
       <th scope="col">Precio</th>      
       <th scope="col">Acción</th>
     </tr>
@@ -19,6 +22,7 @@ if (! empty ( $listado )) {
 				echo "<tr>
 					<td>{$registro->descripcion}</td>
 					<td>{$estado}</td>
+                    <td>{$registro->tipo}</td>
 					<td>{$registro->precio}</td>					           					
                     <td><a href='?c=Producto&a=Datos&id={$registro->idProducto}'
                         class='btn btn-warning'>Editar                        
