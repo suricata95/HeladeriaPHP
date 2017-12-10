@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Usuario {
     public $idUsuario  ;
     public $nombre;
@@ -29,6 +29,18 @@ class Usuario {
         }
     }
     
+    public function ConsultarUsuario($instUsuario) {
+        $resultado = null;
+        try {
+            $vSql = "CALL PA_Seleccionar_Usuario(" . $instUsuario->idUsuario . " );";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->ejecutarSQL ( $vSql );
+            
+            return $resultado[0];
+        } catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
     
     public function Listar() {
         $resultado = null;
