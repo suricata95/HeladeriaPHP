@@ -15,7 +15,7 @@ class UsuarioControlador{
 	    
 	    $listado = $this->modelo->Listar();
 	    require_once 'vista/encabezado.php';
-	    require_once 'vista/heladeria/principal.php';
+	    require_once 'vista/heladeria/listado/usuarioListado.php';
 	    require_once 'vista/piepagina.php';
 	    
 	}

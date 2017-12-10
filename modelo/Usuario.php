@@ -33,7 +33,7 @@ class Usuario {
     public function Listar() {
         $resultado = null;
         try {
-            $vSql = "PA_Seleccionar_Usuario(0);";
+            $vSql = "CALL PA_Seleccionar_Usuario(0);";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->EjecutarSQL ( $vSql );
             return $resultado;
@@ -52,7 +52,7 @@ class Usuario {
             '{$instUsuario->nombre}',
             '{$instUsuario->apellidos}',
             '{$instUsuario->nombreUsuario}',
-            '{$instUsuario->contraseña}',
+            '{$instUsuario->contraseï¿½a}',
             {$$instUsuario->idTipo}
 					);";
             
@@ -71,7 +71,7 @@ class Usuario {
             '{$instUsuario->nombre}',
             '{$instUsuario->apellidos}',
             '{$instUsuario->nombreUsuario}',
-            '{$instUsuario->contraseña}',
+            '{$instUsuario->contraseï¿½a}',
             {$instUsuario->idTipo}
 					);";
             
