@@ -5,6 +5,7 @@ class Sabor {
     public $estado;
     public $cantidad;
     public $mysql;
+    public $hola;
     
     function __construct() {
         try {
@@ -40,6 +41,7 @@ class Sabor {
             die ( $e->getMessage () );
         }
     }
+    
     
     
     public function Insertar($instSabor) {
