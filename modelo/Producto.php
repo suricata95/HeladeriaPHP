@@ -16,15 +16,14 @@ class Producto {
     }
     
     
-    
-    public function ConsultarTodo(){
-        $resultado=null;
-        try{
-            $vSql="Select * from Producto;";
-            $this->mysql->AbrirConexion();
-            $resultado=$this->mysql->ejecutarSQL($vSql);
+    public function Listar() {
+        $resultado = null;
+        try {
+            $vSql = "CALL PA_SeleccionarProducto(0,2);";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->EjecutarSQL ( $vSql );
             return $resultado;
-        }catch ( Exception $e ) {
+        } catch ( Exception $e ) {
             die ( $e->getMessage () );
         }
     }
@@ -48,7 +47,7 @@ class Producto {
         try {
             
             $vSql = "CALL PA_I_Producto(
-            {$instProducto->idProducto},
+           
             '{$instProducto->descripcion}',
             {$instProducto->idTipo},
             {$instProducto->precio},
