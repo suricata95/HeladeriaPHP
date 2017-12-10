@@ -48,7 +48,7 @@ class UsuarioControlador{
         $iUsuario->nombre=$_POST ["txtNombre"];
         $iUsuario->apellidos=$_POST ["txtApellidos"];
         $iUsuario->nombreUsuario=$_POST ["txtUsuario"];
-        $iUsuario->contraseÃ±a=$_POST ["txtContraseña"];
+        $iUsuario->contrasena=$_POST ["pasContrasena"];
         $iUsuario->idTipo=$_POST ["sltTipoUsuario"];
         // Acciones
         $filasAfectadas = 0;

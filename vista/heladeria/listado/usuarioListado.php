@@ -1,4 +1,4 @@
-<a href='?c=Reserva&a=Datos' class='btn btn-success'>Agregar</a>
+<a href='?c=Usuario&a=Datos' class='btn btn-success'>Agregar</a>
          <br>
          <br>               
 <table class="table table-striped">
@@ -22,7 +22,7 @@ if (! empty ( $listado )) {
 					<td>{$registro->apellidos}</td>
 					<td>{$registro->nombreUsuario}</td>
 					<td>{$registro->descripcion}</td>           					
-                    <td><a href='?c=Reserva&a=Datos&id={$registro->idUsuario}'
+                    <td><a href='?c=Usuario&a=Datos&id={$registro->idUsuario}'
                         class='btn btn-warning'>Editar                        
                         </a> 
  <a href='?c=Reserva&a=Datos&id={$registro->idUsuario}'
