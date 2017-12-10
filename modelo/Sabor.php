@@ -46,7 +46,7 @@ class Sabor {
         try {
             
             $vSql = "CALL PA_I_Sabor(
-            {$instSabor->idSabor},
+          
             '{$instSabor->descripcion}',
             {$instSabor->estado},
             {$instSabor->cantidad}
