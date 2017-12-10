@@ -26,9 +26,9 @@
 </div>
 
 <div class="form-group">
-	<label id="" class="control-label col-md-2">Cantidad</label>
+	<label id="" class="control-label col-md-2">Precio</label>
 	<div class="col-md-10">	
-		<input type="number" class="form-control entrada" id="numCantidad" name="numCantidad" value="<?php echo $rProducto->cantidad;?>">
+		<input type="number" class="form-control entrada" id="numPrecio" name="numPrecio" value="<?php echo $rProducto->precio;?>">
 	</div>
 
 </div>

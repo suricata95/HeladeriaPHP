@@ -6,7 +6,7 @@
     <tr>
       <th scope="col">Producto</th>
       <th scope="col">Estado</th>
-      <th scope="col">Cantidad</th>      
+      <th scope="col">Precio</th>      
       <th scope="col">Acción</th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@ if (! empty ( $listado )) {
 				echo "<tr>
 					<td>{$registro->descripcion}</td>
 					<td>{$estado}</td>
-					<td>{$registro->cantidad}</td>					           					
+					<td>{$registro->precio}</td>					           					
                     <td><a href='?c=Producto&a=Datos&id={$registro->idProducto}'
                         class='btn btn-warning'>Editar                        
                         </a> 

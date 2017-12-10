@@ -58,7 +58,7 @@ else{
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="?c=Usuario">Usuario</a>
               <a class="dropdown-item" href="?c=Sabor">Sabor</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="?c=Producto">Producto</a>              
             </div>
           </li>
         </ul>
