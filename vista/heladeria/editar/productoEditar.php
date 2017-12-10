@@ -7,7 +7,7 @@
 <div class="form-group">
 	<label id="" class="control-label col-md-2">Sabor</label>
 	<div class="col-md-10">	
-		<input type="text" class="form-control entrada" id="txtSabor" name="txtSabor" value="<?php echo $rProducto->descripcion;?>">
+		<input type="text" class="form-control entrada" id="txtProducto" name="txtProducto" value="<?php echo $rProducto->descripcion;?>">
 	</div>
 
 </div>
