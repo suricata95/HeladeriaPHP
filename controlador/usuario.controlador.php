@@ -1,6 +1,7 @@
 <?php
 
 require_once 'modelo/Usuario.php';
+require_once 'modelo/TipoUsuario.php';
 
 class UsuarioControlador{
     
@@ -29,6 +30,7 @@ class UsuarioControlador{
             $rUsuario = $this->modelo->ConsultarUsuario($rUsuario);
             
         }
+        $tipoUsuarios = TipoUsuario::selectTipoUsuario($rUsuario->idTipo);
         require_once 'vista/encabezado.php';
         require_once 'vista/heladeria/editar/usuarioEditar.php';
         require_once 'vista/piepagina.php';
