@@ -16,7 +16,7 @@ class Caja{
     public function Insertar($instcaja) {
         try {
             
-            $vSql = "CALL PA_I_caja(
+            $vSql = "CALL PA_I_Caja(
           
             {$instcaja->totalInicio},
             {$instcaja->totalFin},
