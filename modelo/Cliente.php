@@ -13,7 +13,7 @@ class Cliente {
         }
     }
     
-    public function Consultar($instCliente) {
+    public function ConsultarCliente($instCliente) {
         $resultado = null;
         try {
             $vSql = "CALL PA_SeleccionarCliente (" . $instCliente->idCliente . " );";

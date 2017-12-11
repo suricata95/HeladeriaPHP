@@ -1,6 +1,6 @@
 <form id="frm-cliente" action="?c=Cliente&a=Guardar" method="post">
 <h2>Edición de clientes</h2>
-<input type="hidden" name="idUsuario"
+<input type="hidden" name="idCliente"
 		value="<?php echo $rCliente->idCliente;?>" /> <input
 		type="hidden" name="accion"
 		value="<?php echo $rCliente->idCliente!="" ? "U": "I";?>"> 

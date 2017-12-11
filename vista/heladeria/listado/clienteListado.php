@@ -7,7 +7,8 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Nombre</th>
-      <th scope="col">Apellidos</th>    
+      <th scope="col">Apellidos</th> 
+      <th scope="col">Acción</th>   
     </tr>
   </thead>
   <tbody>
@@ -19,7 +20,7 @@ if (! empty ( $listado )) {
 				echo "<tr>
 					<td>{$registro->nombre}</td>
 					<td>{$registro->apellidos}</td>					          					
-                    <td><a href='?c=Usuario&a=Datos&id={$registro->idCliente}'
+                    <td><a href='?c=Cliente&a=Datos&id={$registro->idCliente}'
                         class='btn btn-warning'>Editar                        
                         </a> 
  <a href='?c=Reserva&a=Datos&id={$registro->idCliente}'
