@@ -17,7 +17,7 @@ class Caja{
         try {
             
             $vSql = "CALL PA_I_caja(
-            {$instcaja->idcaja},
+          
             {$instcaja->totalInicio},
             {$instcaja->totalFin},
             '{$instcaja->fecha}',
