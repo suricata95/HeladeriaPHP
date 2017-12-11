@@ -30,7 +30,7 @@ class TipoProductoControlador{
             $rTipoProducto = $this->modelo->ConsultarTipoProducto($rTipoProducto);
             
         }
-        $tipoProducto = TipoProducto::selectTipoProducto($rTipoProducto->idtipoProducto);
+       // $tipoProducto = TipoProducto::selectTipoProducto($rTipoProducto->idtipoProducto);
         require_once 'vista/encabezado.php';
         require_once 'vista/heladeria/editar/tipoProductoEditar.php';
         require_once 'vista/piepagina.php';
@@ -40,7 +40,7 @@ class TipoProductoControlador{
     {
         $mensaje = "No se logro guardar la informacion o No se realizo ningun cambio";
         
-        $iTipoProducto = new Producto ();
+        $iTipoProducto = new TipoProducto ();
         $accion = $_POST ["accion"];
         $mensaje = "";
         $iTipoProducto->idtipoProducto=$_POST ["idtipoProducto"];
@@ -52,13 +52,13 @@ class TipoProductoControlador{
             // Actualizar
             $filasAfectadas = $this->modelo->Modificar($iTipoProducto);
             if ($filasAfectadas > 0) {
-                $mensaje = "Producto actualizado satisfactoriamente";
+                $mensaje = "Tipo Producto actualizado satisfactoriamente";
             }
         } else {
             // Nuevo
             $filasAfectadas = $this->modelo->Insertar($iTipoProducto);
             if ($filasAfectadas > 0) {
-                $mensaje = "Producto registrado satisfactoriamente";
+                $mensaje = "Tipo Producto registrado satisfactoriamente";
             }
         }
         header("location:index.php?c=TipoProducto&alert=" . urlencode($mensaje));

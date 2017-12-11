@@ -17,7 +17,7 @@ class TipoProducto {
     public function Listar() {
         $resultado = null;
         try {
-            $vSql = "select * from tipoproducto";
+            $vSql = "CALL PA_SeleccionarTipoProducto(0)";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->EjecutarSQL ( $vSql );
             return $resultado;
