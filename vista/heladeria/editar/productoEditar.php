@@ -32,7 +32,6 @@
 	<?php echo $tipoProducto?>
 	</select>		
 	</div>
-<?php var_dump($tipoProducto)?>
 </div>
 
 

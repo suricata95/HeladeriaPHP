@@ -26,6 +26,7 @@ class ProductoControlador{
     public function Datos()
     {
         $rProducto = new Producto();
+        $rProducto->tipo=1;
         if (isset($_GET['id']) && ! empty($_GET["id"])) {
             $rProducto->idProducto = $_GET['id'];
             $rProducto = $this->modelo->ConsultarProducto($rProducto);            
