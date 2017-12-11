@@ -32,8 +32,9 @@
 	<?php echo $tipoProducto?>
 	</select>		
 	</div>
-
+<?php var_dump($tipoProducto)?>
 </div>
+
 
 <div class="form-group">
 	<label id="" class="control-label col-md-2">Precio</label>
