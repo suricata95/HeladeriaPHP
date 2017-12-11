@@ -38,13 +38,13 @@ class Cliente {
         }
     }
     
-    public function Agregar($instCliente) {
+    public function Insertar($instCliente) {
         try {
             
             $vSql = "CALL PA_I_Cliente(
             '{$instCliente->nombre}',
-            '{$instCliente->apellidos}',
-            {$instCliente->idCliente}
+            '{$instCliente->apellidos}'
+
 					);";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL_DML ( $vSql );
@@ -59,7 +59,7 @@ class Cliente {
             $vSql = "CALL PA_M_Cliente(
 	        {$instCliente->idCliente},
             '{$instCliente->nombre}',
-            '{$instCliente->apellidos}',
+            '{$instCliente->apellidos}'
 					);";
             
             $this->mysql->AbrirConexion ();

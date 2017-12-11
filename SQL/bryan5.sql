@@ -222,7 +222,7 @@ CREATE TABLE `producto` (
   PRIMARY KEY (`idProducto`),
   KEY `FKTipoProducto_idx` (`tipo`),
   CONSTRAINT `FKTipoProducto` FOREIGN KEY (`tipo`) REFERENCES `tipoproducto` (`idtipoProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +231,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'Cono',1,1000.00,1),(2,'Batido cero',1,2000.00,1);
+INSERT INTO `producto` VALUES (1,'Cono',1,1000.00,1),(2,'Batido cero grasa',2,200000.00,1),(3,'Marihuana',2,878739.00,1);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -329,7 +329,7 @@ CREATE TABLE `tipoproducto` (
   `idtipoProducto` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtipoProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -338,7 +338,7 @@ CREATE TABLE `tipoproducto` (
 
 LOCK TABLES `tipoproducto` WRITE;
 /*!40000 ALTER TABLE `tipoproducto` DISABLE KEYS */;
-INSERT INTO `tipoproducto` VALUES (1,'Cono Chispas');
+INSERT INTO `tipoproducto` VALUES (1,'Cono Chispas'),(2,'hhohhohoi'),(3,'Batina Natural');
 /*!40000 ALTER TABLE `tipoproducto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -466,18 +466,18 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_I_Cliente`(pidCliente int(11),
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_I_Cliente`(
 pnombre varchar(45),
 papellidos varchar(45))
 BEGIN
 	INSERT INTO `heladeria`.`cliente`
 (
-`idCliente`,
+
 `nombre`,
 `apellidos`)
 VALUES
 (
-pidCliente,
+
 pnombre,
 papellidos);
 
@@ -584,6 +584,36 @@ VALUES
 pDescripcion,
 pEstado,
 pCantidad);
+
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `PA_I_TipoProducto` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_I_TipoProducto`(pDescripcion varchar(45))
+BEGIN
+
+INSERT INTO `heladeria`.`tipoproducto`
+(
+
+`descripcion`)
+
+VALUES
+(
+
+pDescripcion);
 
 
 END ;;
@@ -739,6 +769,33 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `PA_M_TipoProducto` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_M_TipoProducto`(pIdTipoProducto int(11), pDescripcion varchar(45))
+BEGIN
+
+UPDATE `heladeria`.`tipoproducto`
+SET
+
+`descripcion`= pDescripcion
+
+WHERE `idtipoProducto` = pIdTipoProducto;
+
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `PA_M_Usuario` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -772,6 +829,28 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `PA_SeleccionarCliente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_SeleccionarCliente`(pIdCliente int(11))
+BEGIN
+
+Select * from cliente
+    where ((idCliente = pIdCliente) OR (pIdCliente = 0));
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `PA_SeleccionarProducto` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -785,8 +864,9 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_SeleccionarProducto`(pIdProducto int(11), pEstado int(11))
 BEGIN
 
-Select * from producto
-where ((idProducto = pIdProducto) OR (pIdProducto = 0)) and ((estado = pEstado) or (pEstado = 2 ));
+Select p.idProducto,p.descripcion,p.tipo,p.precio,p.estado,t.descripcion as tipor
+from producto as p,tipoProducto as t
+where ((idProducto = pIdProducto) OR (pIdProducto = 0)) and ((estado = pEstado) or (pEstado = 2 )) and tipo=t.idtipoProducto ;
 
 END ;;
 DELIMITER ;
@@ -809,6 +889,28 @@ BEGIN
 
 Select * from sabor
     where ((idSabor = pIdSabor) OR (pIdSabor = 0)) and ((estado = pEstado) or (pEstado = 2 ));
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `PA_SeleccionarTipoProducto` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_SeleccionarTipoProducto`(pIdTipoProducto int(11))
+BEGIN
+
+Select * from tipoproducto
+    where ((idtipoProducto = pIdTipoProducto) OR (pIdTipoProducto = 0));
 
 END ;;
 DELIMITER ;
@@ -846,4 +948,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-10 16:55:54
+-- Dump completed on 2017-12-10 19:12:26
