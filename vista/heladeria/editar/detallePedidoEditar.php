@@ -1,7 +1,9 @@
 <form id="frm-detallePedido" action="?c=DetallePedido&a=Guardar" method="post">
 <h2>Edición de detalles de pedido</h2>
 <input type="hidden" name="idDetallePedido"
-		value="<?php echo $rDPedido->iddetallePedido;?>" /> <input
+		value="<?php echo $rDPedido->iddetallePedido;?>" /> 
+		<input type="hidden" name="pid"
+		value="<?php echo $pid;?>" /><input
 		type="hidden" name="accion"
 		value="<?php echo $rDPedido->iddetallePedido!="" ? "U": "I";?>"> 
 <div class="form-group">

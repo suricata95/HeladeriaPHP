@@ -1,6 +1,6 @@
 <h2>Listado de detalles de pedido</h2>
 <br>
-<a href='?c=DetallePedido&a=Datos' class='btn btn-success'>Agregar</a>
+<a href='?c=DetallePedido&a=Datos&pid=<?php echo $pid?>' class='btn btn-success'>Agregar</a>
          <br>
          <br>               
 <table class="table table-striped">
@@ -20,10 +20,10 @@ if (! empty ( $listado )) {
 				echo "<tr>
 					<td>{$registro->producto}</td>
 					<td>{$registro->sabor}</td>					         					
-                    <td><a href='?c=DetallePedido&a=Datos&id={$registro->idDetallePedido}'
+                    <td><a href='?c=DetallePedido&a=Datos&id={$registro->iddetallePedido}'
                         class='btn btn-warning'>Editar                        
                         </a> 
- <a href='?c=Reserva&a=Datos&id={$registro->idDetallePedido}'
+ <a href='?c=Reserva&a=Datos&id={$registro->iddetallePedido}'
                         class='btn btn-danger'>Eliminar                        
                         </a></td>
                        

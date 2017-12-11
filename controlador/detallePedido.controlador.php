@@ -17,6 +17,7 @@ class DetallePedidoControlador{
     public function Index(){
         
         $listado = $this->modelo->Listar2($_GET["id"]);
+        $pid=$_GET["id"];
         require_once 'vista/encabezado.php';
         require_once 'vista/heladeria/listado/detallePedidoListado.php';
         require_once 'vista/piepagina.php';
@@ -27,6 +28,7 @@ class DetallePedidoControlador{
     public function Datos()
     {
         $rDPedido = new DetallePedido();
+        $pid=$_GET["pid"];
         $rDPedido->productoID=1;
         $rDPedido->saborID=1;
         if (isset($_GET['id']) && ! empty($_GET["id"])) {
@@ -48,6 +50,7 @@ class DetallePedidoControlador{
         $iDPedido = new DetallePedido ();
         $accion = $_POST ["accion"];
         $mensaje = "";
+        $iDPedido->pedidoID=$_POST ["pid"];
         $iDPedido->iddetallePedido=$_POST ["idDetallePedido"];
         $iDPedido->productoID=$_POST ["sltProducto"];
         $iDPedido->saborID=$_POST ["sltSabor"];
