@@ -28,9 +28,9 @@ class ProductoControlador{
         $rProducto = new Producto();
         if (isset($_GET['id']) && ! empty($_GET["id"])) {
             $rProducto->idProducto = $_GET['id'];
-            $rProducto = $this->modelo->ConsultarProducto($rProducto);
-            
+            $rProducto = $this->modelo->ConsultarProducto($rProducto);            
         }
+        
         $tipoProducto = TipoProducto::selectTipoProducto($rProducto->tipo);
         //$tipoUsuarios = TipoUsuario::selectTipoUsuario($rUsuario->idTipo);
         require_once 'vista/encabezado.php';

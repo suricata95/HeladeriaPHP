@@ -22,7 +22,7 @@ if (! empty ( $listado )) {
 				echo "<tr>
 					<td>{$registro->descripcion}</td>
 					<td>{$estado}</td>
-                    <td>{$registro->tipo}</td>
+                    <td>{$registro->tipor}</td>
 					<td>{$registro->precio}</td>					           					
                     <td><a href='?c=Producto&a=Datos&id={$registro->idProducto}'
                         class='btn btn-warning'>Editar                        
