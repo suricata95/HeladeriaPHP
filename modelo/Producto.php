@@ -27,6 +27,35 @@ class Producto {
             die ( $e->getMessage () );
         }
     }
+    public function Listar2() {
+        $resultado = null;
+        try {
+            $vSql = "CALL PA_SeleccionarProducto(0,1);";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->EjecutarSQL ( $vSql );
+            return $resultado;
+        } catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
+    
+    public static function selectProducto($id){
+        $info="";
+        $iProducto=new Producto();
+        $listado=$iProducto->Listar2();
+        if(!empty($listado)){
+            foreach ($listado as $campo){
+                $info.= "<option value='".$campo->idProducto."'";
+                if($id!="" && $id==$campo->idProducto){
+                    $info.=" selected>";
+                }else{
+                    $info.=">";
+                }
+                $info.="{$campo->descripcion}</option>";
+            }
+        }
+        return $info;
+    }
     
     
     public function ConsultarProducto($instProducto) {

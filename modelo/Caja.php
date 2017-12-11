@@ -20,7 +20,7 @@ class Caja{
           
             {$instcaja->totalInicio},
             {$instcaja->totalFin},
-            '{$instcaja->fecha}',
+            '{$instcaja->fecha}'
             
 					);";
             
@@ -28,6 +28,38 @@ class Caja{
             $resultado = $this->mysql->ejecutarSQL_DML ( $vSql );
             var_dump($vSql );
             return $resultado;
+        } catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
+    
+    public function ConsultarCaja($instCaja) {
+        $resultado = null;
+        try {
+            $vSql = "CALL PA_SeleccionarCaja (" . $instCaja->idCaja . " );";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->ejecutarSQL ( $vSql );
+            
+            return $resultado[0];
+        } catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
+    
+    public function Modificar($instCaja) {
+        try {
+            $vSql = "CALL PA_M_Caja(
+	        {$instCaja->idcaja},
+            {$instCaja->totalInicio},
+            {$instCaja->totalFin},
+            '{$instCaja->fecha}'
+					);";
+	        
+	        $this->mysql->AbrirConexion ();
+	        $resultado = $this->mysql->ejecutarSQL_DML ( $vSql );
+	        
+	        var_dump($vSql );
+	        return $resultado;
         } catch ( Exception $e ) {
             die ( $e->getMessage () );
         }

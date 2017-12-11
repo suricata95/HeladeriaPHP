@@ -44,9 +44,9 @@ class CajaControlador{
         $accion = $_POST ["accion"];
         $mensaje = "";
         $iCaja->idcaja=$_POST ["idCaja"];
-        $iCaja->totalInicio=$_POST ["numtotalInicio"];
-        $iCaja->totalFin=$_POST ["numtotalFin"];
-        $iCaja->fecha=$_POST ["txtFecha"];
+        $iCaja->totalInicio=$_POST ["numInicial"];
+        $iCaja->totalFin=$_POST ["numFin"];
+        $iCaja->fecha=$_POST ["datFecha"];
 
         // Acciones
         $filasAfectadas = 0;

@@ -1,11 +1,10 @@
 <?php
-class Pedido {
-    public $idPedido;
-    public $clienteID;
-    public $costo;
-    public $estado;
-    public $fecha;
-    public $pagoID;
+class DetallePedido {
+    public $iddetallePedido;
+    public $pedidoID;
+    public $productoID;
+    public $saborID;
+    public $extraID;    
     public $mysql;
     
     function __construct() {
@@ -19,7 +18,7 @@ class Pedido {
     public function Consultar($instPedido) {
         $resultado = null;
         try {
-            $vSql = "CALL PA_SeleccionarPedido(" . $instPedido->idPedido . " );";
+            $vSql = "CALL PA_SeleccionarDetallePedido(0," . $instPedido->idPedido . " );";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL ( $vSql );
             
@@ -32,7 +31,19 @@ class Pedido {
     public function Listar() {
         $resultado = null;
         try {
-            $vSql = "CALL PA_SeleccionarPedido(0);";
+            $vSql = "CALL PA_SeleccionarDetallePedido(0,0);";
+            $this->mysql->AbrirConexion ();
+            $resultado = $this->mysql->EjecutarSQL ( $vSql );
+            return $resultado;
+        } catch ( Exception $e ) {
+            die ( $e->getMessage () );
+        }
+    }
+    
+    public function Listar2($idPedido) {
+        $resultado = null;
+        try {
+            $vSql = "CALL PA_SeleccionarDetallePedido({$idPedido},0);";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->EjecutarSQL ( $vSql );
             return $resultado;
@@ -44,13 +55,11 @@ class Pedido {
     public function Insertar($instPedido) {
         try {
             
-            $vSql = "CALL PA_I_Pedido(
-          
-            {$instPedido->clienteID},
-            {$instPedido->costo},
-            {$instPedido->estado},
-            '{$instPedido->fecha}',
-            {$instPedido->pagoID}
+            $vSql = "CALL PA_I_DetallePedido(          
+            
+            {$instPedido->pedidoID},
+            {$instPedido->productoID},
+            {$instPedido->saborID}
 					);";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL_DML ( $vSql );
