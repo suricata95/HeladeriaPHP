@@ -45,6 +45,7 @@ class TipoProducto {
         return $info;
     }
     
+   
     
     public function ConsultarTipoProducto($instTipoProducto) {
         $resultado = null;
