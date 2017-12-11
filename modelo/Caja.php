@@ -13,7 +13,7 @@ class Caja{
             die ( $e->getMessage () );
         }
     }
-    public function insertar($instcaja) {
+    public function Insertar($instcaja) {
         try {
             
             $vSql = "CALL PA_I_caja(
