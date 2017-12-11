@@ -19,7 +19,7 @@ class Pedido {
     public function Consultar($instPedido) {
         $resultado = null;
         try {
-            $vSql = "CALL PA_SeleccionarPedido(" . $instCliente->idPedido . " );";
+            $vSql = "CALL PA_SeleccionarPedido(" . $instPedido->idPedido . " );";
             $this->mysql->AbrirConexion ();
             $resultado = $this->mysql->ejecutarSQL ( $vSql );
             
@@ -41,11 +41,11 @@ class Pedido {
         }
     }
     
-    public function Agregar($instPedido) {
+    public function Insertar($instPedido) {
         try {
             
             $vSql = "CALL PA_I_Pedido(
-            {$instPedido->idPedido},
+          
             {$instPedido->clienteID},
             {$instPedido->costo},
             {$instPedido->estado},
@@ -63,7 +63,8 @@ class Pedido {
     public function Modificar($instPedido) {
         try {
             $vSql = "CALL PA_M_Pedido(
-	         {$instPedido->idPedido},
+	        
+	        {$instPedido->idPedido},
             {$instPedido->clienteID},
             {$instPedido->costo},
             {$instPedido->estado},
