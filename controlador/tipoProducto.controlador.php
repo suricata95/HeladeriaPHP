@@ -38,14 +38,15 @@ class TipoProductoControlador{
     
     public function Guardar()
     {
+        
         $mensaje = "No se logro guardar la informacion o No se realizo ningun cambio";
         
         $iTipoProducto = new TipoProducto ();
         $accion = $_POST ["accion"];
         $mensaje = "";
         $iTipoProducto->idtipoProducto=$_POST ["idtipoProducto"];
-        $iTipoProducto->descripcion=$_POST ["txtTipoProducto"];
-  
+        $iTipoProducto->descripcion=$_POST ["txtDescripcion"];
+        
         // Acciones
         $filasAfectadas = 0;
         if ($_POST['accion'] == "U") {

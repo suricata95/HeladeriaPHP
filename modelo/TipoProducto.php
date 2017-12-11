@@ -66,7 +66,7 @@ class TipoProducto {
             var_dump($instTipoProducto);
             $vSql = "CALL PA_I_TipoProducto(
 
-            {$instTipoProducto->descripcion}
+            '{$instTipoProducto->descripcion}'
 					);";
             
             $this->mysql->AbrirConexion ();
@@ -81,7 +81,7 @@ class TipoProducto {
         try {
             $vSql = "CALL PA_M_TipoProducto(
 	        {$instTipoProducto->idtipoProducto},
-            {$instTipoProducto->descripcion}
+            '{$instTipoProducto->descripcion}'
 					);";
             
             $this->mysql->AbrirConexion ();
