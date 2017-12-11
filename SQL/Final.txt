@@ -1,0 +1,6 @@
+Cajas Controlers- model (insert select)
+Pedido Controler model(todo) listado de listados
+DetallePedido Controler model(Todo)
+Forma pago  model(select)
+Estado Pedido model(Select)
+Reportes
